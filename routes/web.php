@@ -6,6 +6,8 @@ use BeyondCode\LaravelWebSockets\Dashboard\DashboardLogger;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
+use App\Http\Controllers\RedisController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -36,3 +38,6 @@ Route::post("/chat/send", function(Request $request) {
     }
     SendMessage::dispatch($name, $message, $time);
 });
+
+
+Route::get('/m', [RedisController::class, 'testConnection']);
